@@ -1,5 +1,4 @@
 import herd.calcx.core.api {
-	Expression,
 	Parent,
 	Computable
 }
@@ -9,19 +8,7 @@ import ceylon.collection {
 
 shared class ExpressionParser() {
 	
-	
-	
-	Boolean newInput(Character? lastChar, Character currentChar) {
-		value currentCharInfo = CharacterInfo(currentChar);
-		value lastCharInfo = if (exists lastChar) then CharacterInfo(lastChar) else null;
-		if (exists lastCharInfo, lastCharInfo.group || lastCharInfo.operator) {
-			return true;
-		} else if (currentCharInfo.group || currentCharInfo.operator) {
-			return true;
-		}
-		return false;
-	}
-	
+		
 	{String*}|<Integer->ParseException> divide(String expression) {
 		value expressions = ArrayList<String>();
 		variable value numberBuilder = StringBuilder();

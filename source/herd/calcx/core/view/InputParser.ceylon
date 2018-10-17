@@ -4,7 +4,9 @@ import herd.calcx.core.api {
 	sum,
 	subtraction,
 	multiplication,
-	division
+	division,
+	open,
+	close
 }
 
 shared alias Input => Float|Integer|Operator|Group;
@@ -40,10 +42,10 @@ shared class InputParser() {
 		KnownCharacter? character = knownCharacters.find((KnownCharacter elem) => elem.matchesFirstFrom(val));
 		switch (character)
 		case (openBrace) {
-			return Group(true);
+			return open;
 		}
 		case (closeBrace) {
-			return Group(false);
+			return close;
 		}
 		else {
 			return ParseException("Unparsable group ``val``");

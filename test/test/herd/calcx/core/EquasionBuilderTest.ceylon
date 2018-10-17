@@ -2,39 +2,40 @@ import ceylon.test {
 	test
 }
 import herd.calcx.core.api {
-	equasionBuilder,
+	expressionBuilder,
 	Parent,
 	Data,
 	Expression,
 	Computable,
 	sum,
-	Group
+	open,
+	close
 }
 
 shared class EquasionBuilderTest() {
 	
 	shared test
 	void shouldCreateEmptyEquasion() {
-		value eq = equasionBuilder.build;
+		value eq = expressionBuilder.build;
 		assert (eq.children.empty);
 	}
 	
 	shared test
 	void shouldCreateAGroup() {
-		value eq = equasionBuilder.appender.group(Group(true)).close.build;
+		value eq = expressionBuilder.appender.group(open).close.build;
 		assert (eq.children.size == 1);
 		assert (is Parent parent = eq.children.first);
 	}
 	shared test
 	void shouldCreateSimpleValueInEquasion() {
-		value eq = equasionBuilder.appender.numeric(12.03).close.build;
+		value eq = expressionBuilder.appender.numeric(12.03).close.build;
 		assert (eq.children.size == 1);
 		assert (is Data data = eq.children.first);
 		assert (is Float float = data.item, float == 12.03);
 	}
 	shared test
 	void shouldCreateSimpleEquasion() {
-		value eq = equasionBuilder.appender
+		value eq = expressionBuilder.appender
 			.numeric(12.03)
 			.operator(sum)
 			.numeric(10)
@@ -47,9 +48,9 @@ shared class EquasionBuilderTest() {
 	}
 	shared test
 	void shouldCreateEquasionWithAGroup() {
-		value eq = equasionBuilder.appender.group(Group(true))
+		value eq = expressionBuilder.appender.group(open)
 			.numeric(12).operator(sum).numeric(10)
-			.group(Group(false))
+			.group(close)
 			.operator(sum).numeric(4)
 			.close.build;
 		assert (eq.children.size == 3);

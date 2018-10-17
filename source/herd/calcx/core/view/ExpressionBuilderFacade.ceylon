@@ -1,8 +1,7 @@
 import herd.calcx.core.api {
 	Mutator,
-	equasionBuilder,
+	expressionBuilder,
 	Parent,
-	Expression,
 	Group,
 	Operator,
 	Computable
@@ -10,7 +9,7 @@ import herd.calcx.core.api {
 
 shared class ExpressionBuilderFacade() {
 	
-	variable value appender = equasionBuilder.appender;
+	variable value appender = expressionBuilder.appender;
 	Mutator innerAppend(Input input) {
 		
 		switch (input)

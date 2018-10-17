@@ -13,7 +13,7 @@ import herd.calcx.core.api {
 shared class Appender(Concentrator current, Mutator? parent = null) satisfies Mutator {
 	
 	shared actual Mutator group(Group group) {
-		switch (group.open)
+		switch (group.opening)
 		case (true) {
 			Concentrator concentrator;
 			concentrator = Gathering(current);

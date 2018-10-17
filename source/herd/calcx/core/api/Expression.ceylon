@@ -1,6 +1,7 @@
 import herd.calcx.core.model {
 	Equasion
 }
+
 shared interface Expression of Computable | Data {
 	shared formal Handle handle;
 	
@@ -23,4 +24,4 @@ shared interface Computable satisfies Expression {
 	shared formal Priority priority;
 	shared formal Data compute;
 }
-shared Expression.Builder equasionBuilder => Equasion().builder;
+shared Expression.Builder expressionBuilder => Equasion().builder;

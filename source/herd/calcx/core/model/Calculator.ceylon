@@ -43,7 +43,7 @@ shared class Sum(handle) extends Calculator(handle) {
 	shared actual Operand operand = function(Float one, Float two) {
 		return one.plus(two);
 	};
-	shared actual String string => "+";
+	shared actual String string = "+";
 }
 
 shared class Subtraction(handle) extends Calculator(handle) {
