@@ -1,0 +1,10 @@
+/.exploded/
+.settings
+.openshift
+modules/
+/classes/
+.ceylon
+.project
+ceylon*
+.classpath
+.circleci/
